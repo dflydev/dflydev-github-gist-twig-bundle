@@ -19,6 +19,10 @@ use sculpin\console\command\Command;
 
 class ClearCommand extends Command
 {
+    /**
+     * @{inheritdoc}
+     * @codeCoverageIgnore
+     */
     protected function configure()
     {
         $this

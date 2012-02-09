@@ -11,10 +11,8 @@
 
 namespace dflydev\tests\sculpin\bundle\twigGitHubGistBundle;
 
-
-use sculpin\bundle\twigBundle\TwigBundle;
-
 use dflydev\sculpin\bundle\twigGitHubGistBundle\TwigGitHubGistBundle;
+use sculpin\bundle\twigBundle\TwigBundle;
 
 class TwigGitHubGistBundleTest extends \PHPUnit_Framework_TestCase
 {
@@ -162,5 +160,20 @@ class TwigGitHubGistBundleTest extends \PHPUnit_Framework_TestCase
         $twigGitHubGistBundle = new TwigGitHubGistBundle();
         $twigGitHubGistBundle->configureBundle($sculpin);
         $twigGitHubGistBundle->configureTwigFormatter($sculpin, $formatter);
+    }
+
+    public function testConfigureConsoleApplication()
+    {
+        $application = $this
+            ->getMockBuilder('\sculpin\console\Application')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $inputInterface = $this->getMock('\Symfony\Component\Console\Input\InputInterface');
+        $outputInterface = $this->getMock('\Symfony\Component\Console\Output\OutputInterface');
+        $application
+            ->expects($this->once())
+            ->method('add')
+            ->with($this->isInstanceOf('\dflydev\sculpin\bundle\twigGitHubGistBundle\command\cache\ClearCommand'));
+        TwigGitHubGistBundle::CONFIGURE_CONSOLE_APPLICATION($application, $inputInterface, $outputInterface);
     }
 }
