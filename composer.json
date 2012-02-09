@@ -26,12 +26,5 @@
         "psr-0": {
             "dflydev\\sculpin\\bundle\\twigGitHubGistBundle": "src"
         }
-    },
-    "repositories": {
-        "sculpin": {
-            "vcs": {
-                "url": "git://github.com/sculpin/sculpin.git"
-            }
-        }
     }
 }
