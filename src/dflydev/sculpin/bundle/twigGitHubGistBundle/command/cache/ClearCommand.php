@@ -21,7 +21,6 @@ class ClearCommand extends Command
 {
     /**
      * @{inheritdoc}
-     * @codeCoverageIgnore
      */
     protected function configure()
     {
@@ -34,6 +33,10 @@ EOT
             )
         ;
     }
+
+    /**
+     * @{inheritdoc}
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $sculpin = $this->getSculpinApplication()->createSculpin();

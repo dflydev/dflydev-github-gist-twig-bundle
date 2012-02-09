@@ -11,6 +11,7 @@
             <directory>./src/dflydev/</directory>
             <exclude>
                 <directory>./src/dflydev/*/resources</directory>
+                <directory>./src/dflydev/sculpin/bundle/twigGitHubGistBundle/command/</directory>
             </exclude>
         </whitelist>
     </filter>
