@@ -11,11 +11,14 @@
 
 namespace dflydev\sculpin\bundle\twigGitHubGistBundle;
 
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputInterface;
 use dflydev\twig\extension\gitHub\gist\GistTwigExtension;
 use dflydev\twig\extension\gitHub\gist\cache\FilesystemCache;
 use sculpin\bundle\AbstractBundle;
 use sculpin\bundle\twigBundle\TwigBundle;
 use sculpin\bundle\twigBundle\TwigFormatter;
+use sculpin\console\Application;
 use sculpin\formatter\IFormatter;
 use sculpin\Sculpin;
 
@@ -58,6 +61,14 @@ class TwigGitHubGistBundle extends AbstractBundle
                 array($this, 'configureTwigFormatter')
             );
         }
+    }
+
+    /**
+     * @{inheritdoc}
+     */
+    static public function CONFIGURE_CONSOLE_APPLICATION(Application $application, InputInterface $input, OutputInterface $output)
+    {
+        $application->add(new command\cache\ClearCommand());
     }
 
     /**
