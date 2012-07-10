@@ -64,10 +64,10 @@ class TwigGitHubGistBundle extends AbstractBundle
     public function boot()
     {
         if ($this->configuration->get(self::CONFIG_ENABLED)) {
-            $this->cacheDirectory = $sculpin->prepareCacheFor(
+            $this->cacheDirectory = $this->sculpin->prepareCacheFor(
                 $this->configuration->get(self::CONFIG_CACHE_DIRECTORY)
             );
-            $sculpin->registerFormatterConfigurationCallback(
+            $this->sculpin->registerFormatterConfigurationCallback(
                 TwigBundle::FORMATTER_NAME,
                 array($this, 'configureTwigFormatter')
             );
@@ -83,7 +83,7 @@ class TwigGitHubGistBundle extends AbstractBundle
     public function configureTwigFormatter(Sculpin $sculpin, IFormatter $formatter)
     {
         if ($formatter instanceof TwigFormatter) {
-            if ($sculpin->configuration()->get(self::CONFIG_CACHE_ENABLED)) {
+            if ($this->configuration->get(self::CONFIG_CACHE_ENABLED)) {
                 $cache = new FilesystemCache($this->cacheDirectory);
             } else {
                 $cache = null;
