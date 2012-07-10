@@ -19,12 +19,13 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "sculpin/sculpin": "dev-master",
+        "sculpin/sculpin": "1.*",
         "dflydev/github-gist-twig-extension": "1.*"
     },
     "autoload": {
         "psr-0": {
             "dflydev\\sculpin\\bundle\\twigGitHubGistBundle": "src"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

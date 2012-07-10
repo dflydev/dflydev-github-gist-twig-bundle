@@ -11,51 +11,62 @@
 
 namespace dflydev\sculpin\bundle\twigGitHubGistBundle;
 
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
-use dflydev\twig\extension\gitHub\gist\GistTwigExtension;
 use dflydev\twig\extension\gitHub\gist\cache\FilesystemCache;
+use dflydev\twig\extension\gitHub\gist\GistTwigExtension;
 use sculpin\bundle\AbstractBundle;
 use sculpin\bundle\twigBundle\TwigBundle;
 use sculpin\bundle\twigBundle\TwigFormatter;
 use sculpin\console\Application;
 use sculpin\formatter\IFormatter;
 use sculpin\Sculpin;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Twig GitHub Gist Bundle
+ *
+ * @author Beau Simensen <beau@dflydev.com>
+ */
 class TwigGitHubGistBundle extends AbstractBundle
 {
     /**
      * Is this bundle enabled?
+     *
      * @var string
      */
     const CONFIG_ENABLED = 'twig_github_gist.enabled';
 
     /**
      * Is cache enabled?
+     *
      * @var string
      */
     const CONFIG_CACHE_ENABLED = 'twig_github_gist.cache.enabled';
 
     /**
      * Name of cache directory
+     *
      * @var string
      */
     const CONFIG_CACHE_DIRECTORY = 'twig_github_gist.cache.directory';
 
     /**
      * Cache directory
+     *
      * @var string
      */
     protected $cacheDirectory;
 
-    
+
     /**
-     * @{inheritdoc}
+     * {@inheritdoc}
      */
-    public function configureBundle(Sculpin $sculpin)
+    public function boot()
     {
-        if ($sculpin->configuration()->get(self::CONFIG_ENABLED)) {
-            $this->cacheDirectory = $sculpin->prepareCacheFor($sculpin->configuration()->get(self::CONFIG_CACHE_DIRECTORY));
+        if ($this->configuration->get(self::CONFIG_ENABLED)) {
+            $this->cacheDirectory = $sculpin->prepareCacheFor(
+                $this->configuration->get(self::CONFIG_CACHE_DIRECTORY)
+            );
             $sculpin->registerFormatterConfigurationCallback(
                 TwigBundle::FORMATTER_NAME,
                 array($this, 'configureTwigFormatter')
@@ -64,17 +75,10 @@ class TwigGitHubGistBundle extends AbstractBundle
     }
 
     /**
-     * @{inheritdoc}
-     */
-    static public function CONFIGURE_CONSOLE_APPLICATION(Application $application, InputInterface $input, OutputInterface $output)
-    {
-        $application->add(new command\cache\ClearCommand());
-    }
-
-    /**
      * Configure Twig formatter callback
-     * @param Sculpin $sculpin
-     * @param IFormatter $formatter
+     *
+     * @param Sculpin    $sculpin   Sculpin
+     * @param IFormatter $formatter Formatter
      */
     public function configureTwigFormatter(Sculpin $sculpin, IFormatter $formatter)
     {
