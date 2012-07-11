@@ -4,7 +4,7 @@
     "description": "GitHub Gist Sculpin Bundle",
     "homepage": "http://github.com/dflydev/dflydev-twig-gitHub-gist-sculpin-bundle",
     "keywords": ["twig", "github", "gist", "sculpin", "bundle"],
-    "license": "New BSD License",
+    "license": "MIT",
     "authors": [
         {
             "name": "Dragonfly Development Inc.",
@@ -22,10 +22,14 @@
         "sculpin/sculpin": "1.*",
         "dflydev/github-gist-twig-extension": "1.*"
     },
+    "require-dev": {
+        "Eher/PHPUnit": "1.*"
+    },
     "autoload": {
         "psr-0": {
-            "dflydev\\sculpin\\bundle\\twigGitHubGistBundle": "src"
+            "Dflydev\\Sculpin\\Bundle\\TwigGitHubGistBundle": "src"
         }
     },
+    "target-dir": "Dflydev/Sculpin/Bundle/TwigGitHubGistBundle",
     "minimum-stability": "dev"
 }
