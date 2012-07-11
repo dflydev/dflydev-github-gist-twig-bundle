@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace dflydev\sculpin\bundle\twigGitHubGistBundle;
+namespace Dflydev\Sculpin\Bundle\TwigGitHubGistBundle;
 
 use dflydev\twig\extension\gitHub\gist\cache\FilesystemCache;
 use dflydev\twig\extension\gitHub\gist\GistTwigExtension;

@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace dflydev\sculpin\bundle\twigGitHubGistBundle\command\cache;
+namespace Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\Command\Cache;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use dflydev\sculpin\bundle\twigGitHubGistBundle\TwigGitHubGistBundle;
+use Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\TwigGitHubGistBundle;
 use sculpin\console\command\Command;
 
 class ClearCommand extends Command

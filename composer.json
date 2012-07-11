@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Dflydev\\Sculpin\\Bundle\\TwigGitHubGistBundle": "src"
+            "Dflydev\\Sculpin\\Bundle\\TwigGitHubGistBundle": ""
         }
     },
     "target-dir": "Dflydev/Sculpin/Bundle/TwigGitHubGistBundle",
