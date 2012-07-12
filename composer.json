@@ -22,9 +22,6 @@
         "sculpin/sculpin": "1.*",
         "dflydev/github-gist-twig-extension": "1.*"
     },
-    "require-dev": {
-        "Eher/PHPUnit": "1.*"
-    },
     "autoload": {
         "psr-0": {
             "Dflydev\\Sculpin\\Bundle\\TwigGitHubGistBundle": ""
