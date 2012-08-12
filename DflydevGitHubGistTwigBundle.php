@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class DflydevSculpinTwigGitHubGistBundle extends Bundle
+class DflydevGitHubGistTwigBundle extends Bundle
 {
 
 }
