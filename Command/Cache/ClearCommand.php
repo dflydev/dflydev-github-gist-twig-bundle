@@ -9,18 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\Command\Cache;
+namespace Dflydev\Bundle\GitHubGistTwigBundle\Command\Cache;
 
+use Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\TwigGitHubGistBundle;
+use Sculpin\Core\Console\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\TwigGitHubGistBundle;
-use sculpin\console\command\Command;
 
-class ClearCommand extends Command
+/**
+ * Clear Command.
+ *
+ * @author Beau Simensen <beau@dflydev.com>
+ */
+class ClearCommand extends ContainerAwareCommand
 {
     /**
-     * @{inheritdoc}
+     * {@inheritdoc}
      */
     protected function configure()
     {
@@ -30,17 +35,20 @@ class ClearCommand extends Command
             ->setHelp(<<<EOT
 The <info>cache:clear:gitHubGist</info> command clears the gitHubGist cache.
 EOT
-            )
-        ;
+            );
     }
 
     /**
-     * @{inheritdoc}
+     * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $sculpin = $this->getSculpinApplication()->createSculpin();
-        $sculpin->start();
-        $sculpin->clearCacheFor($sculpin->configuration()->get(TwigGitHubGistBundle::CONFIG_CACHE_DIRECTORY));
+        $container = $this->getContainer();
+        $cacheDir = $this->getContainer()->getParameter('dflydev_twig_github_gist.cache_dir');
+
+        $kernel = $this->getContainer()->get('kernel');
+        $output->writeln(sprintf('Clearing the Twig GitHub Gist cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
+
+        $this->getContainer()->get('filesystem')->remove($cacheDir);
     }
 }
