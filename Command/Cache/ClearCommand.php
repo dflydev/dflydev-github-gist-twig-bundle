@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is a part of Twig GitHub Gist Sculpin Bundle.
+ * This file is a part of GitHub Gist Twig Bundle.
  *
  * (c) Dragonfly Development Inc.
  *
