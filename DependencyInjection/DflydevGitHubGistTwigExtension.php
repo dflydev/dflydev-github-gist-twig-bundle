@@ -38,7 +38,7 @@ class DflydevGitHubGistTwigExtension extends Extension
         if (isset($config['cache']) && isset($config['cache']['enabled']) && $config['cache']['enabled']) {
             $container
                 ->findDefinition('dflydev_twig_github_gist.extension')
-                ->addArgument(new Reference('dflydev_twig_github_gist.filesystem_cache'));
+                ->addArgument(new Reference('dflydev_twig_github_gist.cache.filesystem'));
         }
     }
 }

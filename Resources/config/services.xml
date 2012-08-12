@@ -5,16 +5,21 @@
 
     <parameters>
         <parameter key="dflydev_twig_github_gist.cache_dir">%kernel.cache_dir%/dflydevTwigGitHubGist</parameter>
+        <parameter key="dflydev_twig_github_gist.transport.native_php.class">dflydev\twig\extension\gitHub\gist\transport\NativePhpTransport</parameter>
+        <parameter key="dflydev_twig_github_gist.cache.native_php.class">dflydev\twig\extension\gitHub\gist\cache\FilesystemCache</parameter>
         <parameter key="dflydev_twig_github_gist.extension.class">dflydev\twig\extension\gitHub\gist\GistTwigExtension</parameter>
     </parameters>
 
     <services>
 
-        <service id="dflydev_twig_github_gist.filesystem_cache" class="%dflydev_twig_github_gist.extension.class%">
+        <service id="dflydev_twig_github_gist.transport.native_php" class="%dflydev_twig_github_gist.transport.native_php.class%" />
+
+        <service id="dflydev_twig_github_gist.cache.filesystem" class="%dflydev_twig_github_gist.cache.filesystem.class%">
             <argument>%dflydev_twig_github_gist.cache_dir%</argument>
         </service>
 
         <service id="dflydev_twig_github_gist.extension" class="%dflydev_twig_github_gist.extension.class%">
+            <argument type="service" id="dflydev_twig_github_gist.transport.native_php" />
             <tag name="twig.extension" />
         </service>
 
