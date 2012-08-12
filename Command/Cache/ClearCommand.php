@@ -45,7 +45,7 @@ EOT
         $container = $this->getApplication()->getKernel()->getContainer();
         $cacheDir = $container->getParameter('dflydev_twig_github_gist.cache_dir');
 
-        $kernel = $this->container->get('kernel');
+        $kernel = $container->get('kernel');
         $output->writeln(sprintf('Clearing the <info>Twig GitHub Gist</info> cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
 
         $container->get('filesystem')->remove($cacheDir);
