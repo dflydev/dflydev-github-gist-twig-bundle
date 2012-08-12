@@ -25,5 +25,10 @@
             "Dflydev\\Bundle\\GitHubGistTwigBundle": ""
         }
     },
-    "target-dir": "Dflydev/Bundle/GitHubGistTwigBundle"
+    "target-dir": "Dflydev/Bundle/GitHubGistTwigBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
 }
