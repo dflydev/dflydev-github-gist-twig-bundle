@@ -11,8 +11,7 @@
 
 namespace Dflydev\Bundle\GitHubGistTwigBundle\Command\Cache;
 
-use Dflydev\Sculpin\Bundle\TwigGitHubGistBundle\TwigGitHubGistBundle;
-use Sculpin\Core\Console\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,7 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ClearCommand extends ContainerAwareCommand
+class ClearCommand extends Command
 {
     /**
      * {@inheritdoc}
@@ -43,12 +42,12 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $container = $this->getContainer();
-        $cacheDir = $this->getContainer()->getParameter('dflydev_twig_github_gist.cache_dir');
+        $container = $this->getApplication()->getKernel()->getContainer();
+        $cacheDir = $container->getParameter('dflydev_twig_github_gist.cache_dir');
 
-        $kernel = $this->getContainer()->get('kernel');
-        $output->writeln(sprintf('Clearing the Twig GitHub Gist cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
+        $kernel = $this->container->get('kernel');
+        $output->writeln(sprintf('Clearing the <info>Twig GitHub Gist</info> cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
 
-        $this->getContainer()->get('filesystem')->remove($cacheDir);
+        $container->get('filesystem')->remove($cacheDir);
     }
 }

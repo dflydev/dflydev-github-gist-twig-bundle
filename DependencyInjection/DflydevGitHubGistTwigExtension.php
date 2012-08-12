@@ -18,11 +18,11 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * Twig GitHub Gist Sculpin Extension.
+ * GitHub Gist Twig Extension.
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class DflydevSculpinTwigGitHubGistExtension extends Extension
+class DflydevGitHubGistTwigExtension extends Extension
 {
     /**
      * {@inheritdoc}

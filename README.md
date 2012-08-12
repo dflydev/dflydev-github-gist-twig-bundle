@@ -9,7 +9,7 @@ snippets into [Twig](http://twig.sensiolabs.org/) formatted pages.
 Usage
 -----
 
-Add the following to `composer.json` for the Sculpin site:
+Add the following to `composer.json`:
 
 ```json
 {
