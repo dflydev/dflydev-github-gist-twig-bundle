@@ -6,7 +6,7 @@
     <parameters>
         <parameter key="dflydev_twig_github_gist.cache_dir">%kernel.cache_dir%/dflydevTwigGitHubGist</parameter>
         <parameter key="dflydev_twig_github_gist.transport.native_php.class">dflydev\twig\extension\gitHub\gist\transport\NativePhpTransport</parameter>
-        <parameter key="dflydev_twig_github_gist.cache.native_php.class">dflydev\twig\extension\gitHub\gist\cache\FilesystemCache</parameter>
+        <parameter key="dflydev_twig_github_gist.cache.filesystem.class">dflydev\twig\extension\gitHub\gist\cache\FilesystemCache</parameter>
         <parameter key="dflydev_twig_github_gist.extension.class">dflydev\twig\extension\gitHub\gist\GistTwigExtension</parameter>
     </parameters>
 
