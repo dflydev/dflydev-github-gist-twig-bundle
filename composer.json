@@ -3,7 +3,7 @@
     "type": "sculpin-bundle",
     "description": "GitHub Gist Sculpin Bundle",
     "homepage": "http://github.com/dflydev/dflydev-twig-gitHub-gist-sculpin-bundle",
-    "keywords": ["twig", "github", "gist", "sculpin", "bundle"],
+    "keywords": ["twig", "github", "gist", "sculpin"],
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "sculpin/sculpin": "1.*",
+        "sculpin/sculpin": "2.*",
         "dflydev/github-gist-twig-extension": "1.*"
     },
     "autoload": {
