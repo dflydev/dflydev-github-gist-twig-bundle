@@ -11,7 +11,7 @@
 
     <services>
         <service id="dflydev_github_gist_twig.cache.filesystem" class="%dflydev_github_gist_twig.cache.filesystem.class%">
-            <argument>%dflydev_twig_github_gist.cache_dir%</argument>
+            <argument>%dflydev_github_gist_twig.cache_dir%</argument>
         </service>
 
         <service id="dflydev_github_gist_twig.extension" class="%dflydev_github_gist_twig.extension.class%">
