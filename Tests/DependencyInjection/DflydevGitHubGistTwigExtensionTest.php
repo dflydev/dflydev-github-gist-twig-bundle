@@ -34,14 +34,14 @@ class DflydevGitHubGistTwigExtensionTest extends \PHPUnit_Framework_TestCase
 
         $loader->load(array($config), $this->configuration);
 
-        $definition = $this->configuration->getDefinition('dflydev_twig_github_gist.extension');
+        $definition = $this->configuration->getDefinition('dflydev_github_gist_twig.extension');
         $calls = $definition->getMethodCalls();
 
         foreach ($calls as $call) {
             list ($methodName, $args) = $call;
             if ('setCache' === $methodName) {
                 // Default should be to set cache to the filesystem cache.
-                $this->assertEquals('dflydev_twig_github_gist.cache.filesystem', $args[0]);
+                $this->assertEquals('dflydev_github_gist_twig.cache.filesystem', $args[0]);
 
                 return;
             }
@@ -63,14 +63,14 @@ class DflydevGitHubGistTwigExtensionTest extends \PHPUnit_Framework_TestCase
 
         $loader->load(array($config), $this->configuration);
 
-        $definition = $this->configuration->getDefinition('dflydev_twig_github_gist.extension');
+        $definition = $this->configuration->getDefinition('dflydev_github_gist_twig.extension');
         $calls = $definition->getMethodCalls();
 
         foreach ($calls as $call) {
             list ($methodName, $args) = $call;
             if ('setCache' === $methodName) {
                 // Default should be to set cache to the filesystem cache.
-                $this->assertEquals('dflydev_twig_github_gist.cache.filesystem', $args[0]);
+                $this->assertEquals('dflydev_github_gist_twig.cache.filesystem', $args[0]);
 
                 return;
             }
@@ -92,7 +92,7 @@ class DflydevGitHubGistTwigExtensionTest extends \PHPUnit_Framework_TestCase
 
         $loader->load(array($config), $this->configuration);
 
-        $definition = $this->configuration->getDefinition('dflydev_twig_github_gist.extension');
+        $definition = $this->configuration->getDefinition('dflydev_github_gist_twig.extension');
         $calls = $definition->getMethodCalls();
 
         foreach ($calls as $call) {

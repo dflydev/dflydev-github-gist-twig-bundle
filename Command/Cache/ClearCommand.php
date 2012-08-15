@@ -29,7 +29,7 @@ class ClearCommand extends Command
     {
         $this
             ->setName('cache:clear:gitHubGist')
-            ->setDescription('Clear gitHubGist cache')
+            ->setDescription('Clear GitHub Gist Twig cache')
             ->setHelp(<<<EOT
 The <info>cache:clear:gitHubGist</info> command clears the gitHubGist cache.
 EOT
@@ -42,10 +42,10 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $container = $this->getApplication()->getKernel()->getContainer();
-        $cacheDir = $container->getParameter('dflydev_twig_github_gist.cache_dir');
+        $cacheDir = $container->getParameter('dflydev_github_gist_twig.cache_dir');
 
         $kernel = $container->get('kernel');
-        $output->writeln(sprintf('Clearing the <info>Twig GitHub Gist</info> cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
+        $output->writeln(sprintf('Clearing the <info>GitHub Gist Twig</info> cache for the <info>%s</info> environment with debug <info>%s</info>', $kernel->getEnvironment(), var_export($kernel->isDebug(), true)));
 
         $container->get('filesystem')->remove($cacheDir);
     }

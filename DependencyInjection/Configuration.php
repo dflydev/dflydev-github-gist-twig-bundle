@@ -28,7 +28,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder;
 
-        $rootNode = $treeBuilder->root('dflydev_twig_github_gist');
+        $rootNode = $treeBuilder->root('dflydev_github_gist_twig');
 
         $rootNode
             ->children()

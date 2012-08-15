@@ -4,17 +4,17 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="dflydev_twig_github_gist.cache_dir">%kernel.cache_dir%/dflydevGitHubGistTwig</parameter>
-        <parameter key="dflydev_twig_github_gist.cache.filesystem.class">Dflydev\Twig\Extension\GitHubGist\Cache\FilesystemCache</parameter>
-        <parameter key="dflydev_twig_github_gist.extension.class">Dflydev\Twig\Extension\GitHubGist\GistTwigExtension</parameter>
+        <parameter key="dflydev_github_gist_twig.cache_dir">%kernel.cache_dir%/dflydevGitHubGistTwig</parameter>
+        <parameter key="dflydev_github_gist_twig.cache.filesystem.class">Dflydev\Twig\Extension\GitHubGist\Cache\FilesystemCache</parameter>
+        <parameter key="dflydev_github_gist_twig.extension.class">Dflydev\Twig\Extension\GitHubGist\GistTwigExtension</parameter>
     </parameters>
 
     <services>
-        <service id="dflydev_twig_github_gist.cache.filesystem" class="%dflydev_twig_github_gist.cache.filesystem.class%">
+        <service id="dflydev_github_gist_twig.cache.filesystem" class="%dflydev_github_gist_twig.cache.filesystem.class%">
             <argument>%dflydev_twig_github_gist.cache_dir%</argument>
         </service>
 
-        <service id="dflydev_twig_github_gist.extension" class="%dflydev_twig_github_gist.extension.class%">
+        <service id="dflydev_github_gist_twig.extension" class="%dflydev_github_gist_twig.extension.class%">
             <tag name="twig.extension" />
         </service>
     </services>
